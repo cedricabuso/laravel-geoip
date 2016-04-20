@@ -112,13 +112,6 @@ class GeoIP {
     }
 
     private function find( $ip = null ) {
-        // Check Session
-        if ( $ip === null && $position = $this->session->get('geoip-location') ) {
-            if($position['ip'] === $this->remote_ip) {
-                return $position;
-            }
-        }
-
         // If IP not set, user remote IP
         if ( $ip === null ) {
             $ip = $this->remote_ip;
